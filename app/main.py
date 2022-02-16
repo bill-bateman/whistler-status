@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_caching import Cache
+from flask_cors import CORS
 
 import requests
 import json
@@ -13,6 +14,7 @@ config = {
 app = Flask(__name__)
 app.config.from_mapping(config)
 cache = Cache(app)
+cors = CORS(app, origins=["https://bill.batemanzhou.com"])
 
 STATUS_KEY="whistler_status"
 
